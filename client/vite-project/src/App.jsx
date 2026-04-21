@@ -23,7 +23,7 @@ function App() {
         {user.map((user) => (
           <li key={user.id}>
             {[
-              user.name,
+              <b>{user.name}</b>,
               " - ",
               user.email,
               " - ",
