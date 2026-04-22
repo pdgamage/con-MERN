@@ -3,12 +3,16 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const User = require("./User");
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
 
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
+
 mongoose
-  .connect("process.env.MONGODB_URI", {})
+  .connect(process.env.MONGODB_URI || "mongodb://mongo:27017/dockertest")
   .then(() => {
     console.log("Connected to MongoDB");
   })
