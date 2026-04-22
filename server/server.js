@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect("mongodb://localhost:27017/dockertest", {})
+  .connect("process.env.MONGODB_URI", {})
   .then(() => {
     console.log("Connected to MongoDB");
   })
